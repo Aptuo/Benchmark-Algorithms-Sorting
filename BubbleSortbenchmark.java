@@ -1,6 +1,6 @@
 import java.util.concurrent.ThreadLocalRandom;
 
-public class test {
+public class BubbleSortbenchmark {
 
     // Entry point of the program.
     // نقطة الدخول في البرنامج.
@@ -29,21 +29,27 @@ public class test {
         // Run the bubble sort on the random array and record its time.
         // نفّذ فرز الفقاعات على المصفوفة العشوائية وسجل الوقت.
         System.out.println("RandomArray");
-        long RandomArraytime = bubblesort(arrayRandom);
+        long randomArrayTimeNs = bubbleSort(arrayRandom);
 
         // Run the bubble sort on the reverse-sorted array and record its time.
         // نفّذ فرز الفقاعات على المصفوفة المرتبة عكسيًا وسجل الوقت.
         System.out.println("ReverseArray");
-        long ReverseArrayTime = bubblesort(arrayReverse);
+        long reverseArrayTimeNs = bubbleSort(arrayReverse);
+
+        double randomMicroseconds = nanosToMicroseconds(randomArrayTimeNs);
+        double reverseMicroseconds = nanosToMicroseconds(reverseArrayTimeNs);
+
+        System.out.printf("Random array time: %.3f microseconds%n", randomMicroseconds);
+        System.out.printf("Reverse array time: %.3f microseconds%n", reverseMicroseconds);
 
         // Compare the sorting times and print which case was faster.
         // قارن أوقات الفرز واطبع أي حالة كانت أسرع.
-        if (RandomArraytime > ReverseArrayTime) {
-            System.out.println("Reverse was faster by " + (RandomArraytime - ReverseArrayTime) / 1_000.0 + " microSeconds");
-        } else if (ReverseArrayTime > RandomArraytime) {
-            System.out.println("Random was faster by " + (ReverseArrayTime - RandomArraytime) / 1_000.0 + " microSeconds");
+        if (randomArrayTimeNs > reverseArrayTimeNs) {
+            System.out.printf("Reverse was faster by %.3f microseconds%n", randomMicroseconds - reverseMicroseconds);
+        } else if (reverseArrayTimeNs > randomArrayTimeNs) {
+            System.out.printf("Random was faster by %.3f microseconds%n", reverseMicroseconds - randomMicroseconds);
         } else {
-            System.out.println("both scenarios took the same time");
+            System.out.println("Both scenarios took the same time");
         }
     }
 
@@ -51,7 +57,7 @@ public class test {
     // خوارزمية فرز الفقاعات.
     // It compares adjacent values and swaps them until the array is sorted.
     // تقارن القيم المتجاورة وتبدلها حتى تصبح المصفوفة مرتبة.
-    public static long bubblesort(int arr[]) {
+    public static long bubbleSort(int[] arr) {
         // Store the start time before sorting begins.
         // خزّن وقت البداية قبل بدء الفرز.
         long start = System.nanoTime();
@@ -78,12 +84,16 @@ public class test {
 
         // Print the execution time in different units for comparison.
         // اطبع الوقت المنقضي بوحدات مختلفة للمقارنة.
-        System.out.println("Time: " + elapsed + " nanoseconds");
-        System.out.println("Time: " + elapsed / 1_000_000.0 + " milliseconds");
-        System.out.println("Time: " + elapsed / 1_000.0 + " microseconds");
+        System.out.printf("Time: %.3f nanoseconds%n", (double) elapsed);
+        System.out.printf("Time: %.3f milliseconds%n", elapsed / 1_000_000.0);
+        System.out.printf("Time: %.3f microseconds%n", nanosToMicroseconds(elapsed));
 
         // Return the elapsed time so it can be compared with the other array.
         // ارجع الوقت المنقضي حتى يمكن مقارنته مع المصفوفة الأخرى.
         return elapsed;
+    }
+
+    private static double nanosToMicroseconds(long nanos) {
+        return nanos / 1_000.0;
     }
 }
