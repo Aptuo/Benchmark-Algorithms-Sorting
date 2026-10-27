@@ -4,15 +4,15 @@ Student ID : 3153018
 
 | Scenario | Time (microseconds) |
 |---|---:|
-| Random array | 20,755,875.394 |
-| Reverse-sorted array | 7,150,437.584 |
+| Random array | 19,308,905.708 |
+| Reverse-sorted array | 7,602,108.173 |
 
 ```mermaid
 xychart-beta
     title "Bubble Sort Time by Scenario"
     x-axis ["Random", "Reverse-sorted"]
     y-axis "Time (microseconds)" 0 --> 22000000
-    bar [20755875.394, 7150437.584]
+    bar [19308905.708, 7602108.173]
 ```
 
-Reverse was faster by 13,605,437.81 microseconds.
+Reverse was faster by 11,706,797.535 microseconds.
