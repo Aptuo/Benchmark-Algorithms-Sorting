@@ -21,23 +21,24 @@ Results from the latest run (time in microseconds):
 
 ### Benchmark chart
 
+The chart uses a logarithmic scale (`log10` of microseconds) so the much faster Sorted and Partial results remain visible alongside the slower results. Refer to the table above for exact runtimes.
+
 ```mermaid
 xychart-beta
-    title "Sorting Algorithm Benchmark by Scenario (microseconds)"
+    title "Sorting Algorithm Benchmark (log10 microseconds)"
     x-axis ["Selection", "Insertion", "Bubble", "Merge", "Quick"]
-    y-axis "Time (microseconds)" 0 --> 17000000
-    bar "Sorted" [1417768, 1888, 1853, 16430, 27389]
-    bar "Reverse" [5108022, 6681888, 8034224, 55391, 18526]
-    bar "Partial" [2534388, 545433, 8242685, 7767, 11500]
-    bar "Random" [2523922, 1779466, 16856373, 14543, 13493]
+    y-axis "log10(Time in microseconds)" 3 --> 8
+    bar "Sorted" [6.15, 3.28, 3.27, 4.22, 4.44]
+    bar "Reverse" [6.71, 6.82, 6.91, 4.74, 4.27]
+    bar "Partial" [6.40, 5.74, 6.92, 3.89, 4.06]
+    bar "Random" [6.40, 6.25, 7.23, 4.16, 4.13]
 ```
 
 Note: Timing results depend on the machine and runtime environment, so repeated runs may produce different values.
 
 Each algorithm is tested against the same four input scenarios. The benchmark copies each original array before sorting and checks that the result is in ascending order.
 
-
- يتم اختبار كل خوارزمية باستخدام سيناريوهات الإدخال الأربعة نفسها. تنسخ المقارنة كل مصفوفة أصلية قبل الفرز، ثم تتحقق من أن النتيجة مرتبة تصاعدياً.
+يتم اختبار كل خوارزمية باستخدام سيناريوهات الإدخال الأربعة نفسها. تنسخ المقارنة كل مصفوفة أصلية قبل الفرز، ثم تتحقق من أن النتيجة مرتبة تصاعدياً.
 
 ## Sorting algorithms included
 
