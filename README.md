@@ -9,9 +9,9 @@ Arabic: ينشئ هذا البرنامج مصفوفات مرتبة ومرتبة 
 
 ## Benchmark results
 
-Results from the latest run (time in microseconds):
+Results from the latest run. All times are in microseconds (µs):
 
-| Algorithm | Sorted | Reverse | Partial | Random |
+| Algorithm | Sorted (µs) | Reverse (µs) | Partial (µs) | Random (µs) |
 |---|---:|---:|---:|---:|
 | Selection Sort | 1,417,768 | 5,108,022 | 2,534,388 | 2,523,922 |
 | Insertion Sort | 1,888 | 6,681,888 | 545,433 | 1,779,466 |
@@ -19,19 +19,58 @@ Results from the latest run (time in microseconds):
 | Merge Sort | 16,430 | 55,391 | 7,767 | 14,543 |
 | Quick Sort | 27,389 | 18,526 | 11,500 | 13,493 |
 
-### Benchmark chart
+## Separate benchmark charts
 
-The chart uses a logarithmic scale (`log10` of microseconds) so the much faster Sorted and Partial results remain visible alongside the slower results. Refer to the table above for exact runtimes.
+Each algorithm has its own chart with a linear scale in microseconds (µs). Separate scales make the smaller values easier to see without transforming the reported timings.
+
+### Selection Sort
 
 ```mermaid
 xychart-beta
-    title "Sorting Algorithm Benchmark (log10 microseconds)"
-    x-axis ["Selection", "Insertion", "Bubble", "Merge", "Quick"]
-    y-axis "log10(Time in microseconds)" 3 --> 8
-    bar "Sorted" [6.15, 3.28, 3.27, 4.22, 4.44]
-    bar "Reverse" [6.71, 6.82, 6.91, 4.74, 4.27]
-    bar "Partial" [6.40, 5.74, 6.92, 3.89, 4.06]
-    bar "Random" [6.40, 6.25, 7.23, 4.16, 4.13]
+    title "Selection Sort (µs)"
+    x-axis ["Sorted", "Reverse", "Partial", "Random"]
+    y-axis "Time (µs)" 0 --> 6000000
+    bar [1417768, 5108022, 2534388, 2523922]
+```
+
+### Insertion Sort
+
+```mermaid
+xychart-beta
+    title "Insertion Sort (µs)"
+    x-axis ["Sorted", "Reverse", "Partial", "Random"]
+    y-axis "Time (µs)" 0 --> 7000000
+    bar [1888, 6681888, 545433, 1779466]
+```
+
+### Bubble Sort
+
+```mermaid
+xychart-beta
+    title "Bubble Sort (µs)"
+    x-axis ["Sorted", "Reverse", "Partial", "Random"]
+    y-axis "Time (µs)" 0 --> 18000000
+    bar [1853, 8034224, 8242685, 16856373]
+```
+
+### Merge Sort
+
+```mermaid
+xychart-beta
+    title "Merge Sort (µs)"
+    x-axis ["Sorted", "Reverse", "Partial", "Random"]
+    y-axis "Time (µs)" 0 --> 60000
+    bar [16430, 55391, 7767, 14543]
+```
+
+### Quick Sort
+
+```mermaid
+xychart-beta
+    title "Quick Sort (µs)"
+    x-axis ["Sorted", "Reverse", "Partial", "Random"]
+    y-axis "Time (µs)" 0 --> 30000
+    bar [27389, 18526, 11500, 13493]
 ```
 
 Note: Timing results depend on the machine and runtime environment, so repeated runs may produce different values.
