@@ -5,6 +5,7 @@ Student ID : 3153018
 This project benchmarks several sorting algorithms using different input scenarios to compare their performance and verify correctness.
 
  The program creates sorted, reverse-sorted, partially sorted, and random arrays, then measures how long each sorting algorithm takes to process them.
+ 
   ينشئ هذا البرنامج مصفوفات مرتبة ومرتبة ترتيباً عكسياً ومرتبة جزئياً وعشوائية، ثم يقيس الوقت الذي تستغرقه كل خوارزمية فرز لمعالجة تلك البيانات.
 
 ## Benchmark results
